@@ -1,7 +1,7 @@
 ////Look into Angular Google Maps (AGM) package
+//// Req(math,AGM)
 
 
-Return{
   //Example new Object
 const weekDay = function(){
   //Object Properties
@@ -12,21 +12,41 @@ const weekDay = function(){
     number(name){/*functionLine*/},
   };
 };
+const time = [Date.now(),new Date()]
 
-
+let gasPrice 
 
 
 //const func= function that ties rng1-rng2
-const CarNav = function(){
-  const startTiktok = new Date()
-  let time = 0 // asynchronous code for constancy
-  let timeScale = 0///function
-  const currLoc = 0// or retriverFunction
-  const range = [1,2,3]// send(currLoc) like // (list/object of coordinates)=>3rdPService{};
+let CarNav = function(){
+  const startTiktok = new Date();
+  let time = 0;
+  setInterval(function() { 
+    time = Date.now();
+    console.log(time)
+  }); // asynchronous code for constancy
+  let timeScale = 0;///function...eg..collected from maps
+  const currLoc = 0;// or retriverFunction
+  const range = [1,2,3];// send(currLoc) like // (list/object of coordinates)=>3rdPService{};
   return{
     pathToOtherRange(RngTo){ //just a console.log(thing)
-      var pathStats = {path:[/* */, startTiktok]}
-      return `${path}`
+      pathStats = {
+        path:
+          [
+            math.add(range[RngTo]/*pathToSplineMapObj*/,currLoc)
+            ,startTiktok
+            ,
+          ]
+        ,gasMilageCost:
+          0//{gmaps.Dist(currLoc,range)*gasPrice/mile}
+        ,MilageCost:
+          0//{gmaps.Dist(currLoc,range)*Price/mile}
+        ,
+        
+      },
+      
+      //print map to screen
+      console.log( `${pathStats.path}`  )
       //return math.add( currLoc,range[RngTo])
       
     
@@ -35,15 +55,12 @@ const CarNav = function(){
 }();
 
 /* *******function to alter timeScale(){}******
-
-
-
 */
 
 
 
 
 
-console.log(CarNav.pathToOtherRange(0))
+CarNav.pathToOtherRange(0)
+console.log(time)
 
-}
